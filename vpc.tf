@@ -29,6 +29,6 @@ resource "aws_subnet" "ibm-db-sn" {
   map_public_ip_on_launch = "false"
 
   tags = {
-    Name = "ibm-wedatabase-subnet"
+    Name = "ibm-database-subnet"
   }
 }
