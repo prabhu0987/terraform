@@ -42,3 +42,17 @@ resource "aws_internet_gateway" "ibm-igw" {
     Name = "ibm-internet-igw"
   }
 }
+
+#public route table 
+
+resource "aws_route_table" "ibm-web-rt" {
+  vpc_id = aws_vpc.ibm-vpc.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.ibm-igw.id
+  }
+   tags = {
+    Name = "ibm-web-route-table"
+  }
+}
