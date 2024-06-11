@@ -79,5 +79,5 @@ resource "aws_route_table" "ibm-db-rt" {
 
 resource "aws_route_table_association" "ibm-db-rt-association" {
   subnet_id      = aws_subnet.ibm-db-sn.id
-  route_table_id = aws_route_table.ibm-dt-rt.id
+  route_table_id = aws_route_table.ibm-db-rt.id
 }
