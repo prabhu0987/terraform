@@ -64,3 +64,20 @@ resource "aws_route_table_association" "ibm-web-rt-association" {
   route_table_id = aws_route_table.ibm-web-rt.id
 }
 
+#private route table 
+
+resource "aws_route_table" "ibm-db-rt" {
+  vpc_id = aws_vpc.ibm-vpc.id
+
+ 
+   tags = {
+    Name = "ibm-database-route-table"
+  }
+}
+
+#Pprivate route table association
+
+resource "aws_route_table_association" "ibm-db-rt-association" {
+  subnet_id      = aws_subnet.ibm-db-sn.id
+  route_table_id = aws_route_table.ibm-dt-rt.id
+}
