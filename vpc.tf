@@ -9,7 +9,7 @@ resource "aws_vpc" "ecomm-vpc" {
 
 #public subnet
 
-resource "aws_subnet" "-webecomm-sn" {
+resource "aws_subnet" "ecomm-web-sn" {
   vpc_id     = aws_vpc.ecomm-vpc.id
   cidr_block = "10.0.1.0/24"
   availability_zone = "eu-north-1a"
