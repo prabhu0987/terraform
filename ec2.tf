@@ -1,5 +1,5 @@
 resource "aws_instance" "ecomm-web-server" {
-  ami           = ami-011e54f70c1c91e17 
+  ami           = "ami-011e54f70c1c91e17"
   instance_type = "t3.micro"
   subnet_id = aws_subnet.ecomm-web-sn.id
   key_name = "stock-key"
