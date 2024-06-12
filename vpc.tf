@@ -163,3 +163,23 @@ resource "aws_security_group" "ibm-web-sg" {
     Name = "ibm-web-security-group"
   }
 }
+
+# ssh Traffic
+
+resource "aws_vpc_security_group_ingress_rule" "ibm-web-ssh" {
+  security_group_id = aws_security_group.ibm-web-sg.id
+  cidr_ipv4         = 0.0.0.0/0
+  from_port         = 22
+  ip_protocol       = "tcp"
+  to_port           = 22
+}
+
+# HTTP Traffic
+
+resource "aws_vpc_security_group_ingress_rule" "ibm-web-http" {
+  security_group_id = aws_security_group.ibm-web-sg.id
+  cidr_ipv4         = 0.0.0.0/0
+  from_port         = 80
+  ip_protocol       = "tcp"
+  to_port           = 80
+}
